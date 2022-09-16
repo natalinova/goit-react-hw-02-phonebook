@@ -14,7 +14,7 @@ export default class PhonebookForm extends Component {
     numberId = nanoid();
 
     handleSubmit = (e) => {
-        (e).preventDefault();
+        e.preventDefault();
         alert('wow!');
         console.log(e);
         const variant = e.currentTarget.value;
