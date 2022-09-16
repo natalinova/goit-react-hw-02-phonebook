@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { nanoid } from "nanoid";
 import PhonebookForm from "./PhonebookForm";
-import PhonebookList from "./PhonebookList";
+// import PhonebookList from "./PhonebookList";
 
 
 export default class Phonebook extends Component {

@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 import { Component } from "react";
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+// import PropTypes from 'prop-types';
+// import styled from 'styled-components';
 import {Form} from './PhonebookStyled'
 
 export default class PhonebookForm extends Component {
