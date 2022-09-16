@@ -14,10 +14,11 @@ export default class PhonebookForm extends Component {
     numberId = nanoid();
 
     handleSubmit = (e) => {
-        alert('wow!')
-        console.log(e)
-        const variant = e.currentTarget.value
-        console.log(variant)
+        (e).preventDefault();
+        alert('wow!');
+        console.log(e);
+        const variant = e.currentTarget.value;
+        console.log(variant);
     }
     handleInput = (e) => {
         console.log(e)
