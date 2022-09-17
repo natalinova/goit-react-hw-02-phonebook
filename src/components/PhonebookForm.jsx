@@ -1,8 +1,7 @@
-import { nanoid } from "nanoid";
 import { Component } from "react";
-// import PropTypes from 'prop-types';
-// import styled from 'styled-components';
-import {Form} from './PhonebookStyled'
+import { Formik } from 'formik';
+import {FormTotal, InputField,Button} from './PhonebookStyled'
+
 
 export default class PhonebookForm extends Component {
     state = {
@@ -10,18 +9,9 @@ export default class PhonebookForm extends Component {
         number: ''
         
     }
-    nameId = nanoid();
-    numberId = nanoid();
+    
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        alert('wow!');
-        console.log(e);
-        const variant = e.currentTarget.value;
-        console.log(variant);
-    }
     handleInput = (e) => {
-        console.log(e)
         const { name, value } = e.target;
         this.setState({
             [name]: value
@@ -30,27 +20,28 @@ export default class PhonebookForm extends Component {
     }
    
     
-    // handleSubmit = (e) => {
-    //     console.log(e)
-    //     //  e.preventDefault();
-    //     // const { name, number } = this.state;
-       
-    //     //     this.props.onSubmit({ name, number });
-    //     //     this.setState({
-    //     //         name: '',
-    //     //         number: ''
-    //     //     })
-    // }
+    handleSubmit = (e) => {
+         e.preventDefault();
+        const { name, number } = this.state;
+        console.log(name);
+            this.props.onSubmit({ name, number });
+            this.setState({
+                name: '',
+                number: ''
+            })
+    }
 
 
     render() {
-        const { nameId, numberId, handleInput, handleSubmit } = this;
-        return (
+        const { handleInput, handleSubmit } = this;
         
-                <Form onSubmit={handleSubmit}>
-                <label htmlFor={nameId}> Name:</label>
-                    <input
-                        id={nameId}
+        return (
+            <Formik >
+                <FormTotal onSubmit={handleSubmit}>
+                
+                <label htmlFor="id-name"> Name:</label>
+                    <InputField
+                        id="id-name"
                         type="text"
                         name="name"
                         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -60,9 +51,9 @@ export default class PhonebookForm extends Component {
                     onChange={handleInput}
                 />
                
-                <label htmlFor={numberId}> Phone: </label>
-                <input
-                    id={numberId}
+                <label htmlFor="id-number"> Phone: </label>
+                <InputField
+                    id="id-number"
                     type="tel"
                     name="number"
                     pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -72,9 +63,11 @@ export default class PhonebookForm extends Component {
                     onChange={handleInput}
                     />
             
-                <button type="button">Add people</button>
-                </Form>
+                <Button >Add people</Button>
+                </FormTotal>
                 
+        </Formik>
+              
     
         )
     }
