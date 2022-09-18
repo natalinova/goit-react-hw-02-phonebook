@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { Formik } from 'formik';
 import {FormTotal, InputField,Button} from './PhonebookStyled'
 
 
@@ -7,10 +6,8 @@ export default class PhonebookForm extends Component {
     state = {
         name: '',
         number: ''
-        
     }
     
-
     handleInput = (e) => {
         const { name, value } = e.target;
         this.setState({
@@ -19,7 +16,6 @@ export default class PhonebookForm extends Component {
         )
     }
    
-    
     handleSubmit = (e) => {
          e.preventDefault();
         const { name, number } = this.state;
@@ -36,7 +32,6 @@ export default class PhonebookForm extends Component {
         const { handleInput, handleSubmit } = this;
         
         return (
-            <Formik >
                 <FormTotal onSubmit={handleSubmit}>
                 
                 <label htmlFor="id-name"> Name:</label>
@@ -65,9 +60,7 @@ export default class PhonebookForm extends Component {
             
                 <Button >Add people</Button>
                 </FormTotal>
-                
-        </Formik>
-              
+        
     
         )
     }

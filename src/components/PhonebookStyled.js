@@ -1,8 +1,7 @@
-import { Field, Form } from 'formik';
 import styled from 'styled-components';
 
 
-export const FormTotal = styled(Form)`
+export const FormTotal = styled.form`
 color: #4a6500;
 width: 500px;
 margin: 50px auto;
@@ -25,7 +24,7 @@ padding-bottom:10px;
 justify-content: space-between;
 width: 90%;
 `
-export const InputField = styled(Field)`
+export const InputField = styled.input`
 background-color:#ffd56f;
 border-radius: 5px;
 `
