@@ -1,9 +1,9 @@
-import {Input} from './PhonebookStyled'
+import {InputField} from './PhonebookStyled'
 export default function PhonebookFilter({ filter, handleInput }) {
-    return (<Input
+    return (<InputField
           type='text'
           name='filter'
           value={filter}
           onChange={handleInput}
-          placeholder={"filter"}></Input>)
+          placeholder={"filter"}/>)
 }

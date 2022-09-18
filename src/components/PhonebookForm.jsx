@@ -1,5 +1,5 @@
 import { Component } from "react";
-import {FormTotal, InputField,Button} from './PhonebookStyled'
+import {FormTotal, InputField,InputButton} from './PhonebookStyled'
 
 
 export default class PhonebookForm extends Component {
@@ -58,7 +58,7 @@ export default class PhonebookForm extends Component {
                     onChange={handleInput}
                     />
             
-                <Button >Add people</Button>
+                <InputButton >Add people</InputButton>
                 </FormTotal>
         
     

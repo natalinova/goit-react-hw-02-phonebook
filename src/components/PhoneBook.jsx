@@ -43,7 +43,7 @@ export default class Phonebook extends Component {
   isDuplicate({ name, number }) {
     console.log(name);
     console.log(number)
-    const contacts = this.state.contacts;
+    const { contacts } = this.state;
     console.log(contacts)
     const result = contacts.find((contact) => contact.name === name && contact.number === number);
     console.log(result)
@@ -69,12 +69,7 @@ export default class Phonebook extends Component {
   }
   
   removeContacts = (id) => {
-    this.setState((prev) => {
-      const newContacts = prev.contacts.filter((item) => item.id !== id);
-      return {
-        contacts: newContacts
-      }
-    }
+    this.setState((prev) => ({...prev, contacts: prev.contacts.filter(item =>item.id !== id)})
     )
 
   }
